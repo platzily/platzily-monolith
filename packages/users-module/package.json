@@ -1,0 +1,28 @@
+{
+  "name": "@platzily/users-module",
+  "version": "1.0.0",
+  "description": "User services",
+  "author": "Jorge Arias Argüelles <jorgeariasarguelles@gmail.com>",
+  "homepage": "https://github.com/platzily/platzily-monolith#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-monolith.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-monolith/issues"
+  }
+}
