@@ -5,3 +5,11 @@
 // userId   -> id of user
 
 // the fields must be written in camelCase
+
+module.exports = class Statistic {
+  constructor(userId, LinkId){
+    this.statisticId = undefined; 
+    this.userId=  userId;
+    this.LinkId=  LinkId;
+  }
+};
