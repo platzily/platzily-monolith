@@ -2,7 +2,7 @@
   "name": "@platzily/users-module",
   "version": "1.0.0",
   "description": "User services",
-  "author": "Jorge Arias Argüelles <jorgeariasarguelles@gmail.com>",
+  "author": "User Team",
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
   "license": "ISC",
   "main": "src/index.js",
