@@ -1,8 +1,9 @@
 {
+  "type": "module",
   "name": "@platzily/statistics-module",
   "version": "1.0.0",
-  "description": "> TODO: description",
-  "author": "Rubén Esparza <rubenesparzasoto95@gmail.com>",
+  "description": "Statistics Services",
+  "author": "Statistics Team <@platzily/statistics>",
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
   "license": "ISC",
   "main": "src/index.js",

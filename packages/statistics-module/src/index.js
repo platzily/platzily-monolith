@@ -1,1 +1,3 @@
-module.exports = {}
+export default function statisticsModule() {
+  // TODO
+}
