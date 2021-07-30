@@ -1,18 +1,20 @@
 {
-  "name": "statistics-module",
+  "name": "@platzily/statistics-module",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Rubén Esparza <rubenesparzasoto95@gmail.com>",
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
   "license": "ISC",
-  "main": "lib/statistics-module.js",
+  "main": "src/index.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/platzily/platzily-monolith.git"
