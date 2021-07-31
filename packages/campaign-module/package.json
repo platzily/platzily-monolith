@@ -1,0 +1,28 @@
+{
+  "name": "campaign-module",
+  "version": "1.0.0",
+  "description": "Package for implement campaign's domain",
+  "keywords": [
+    "campaign"
+  ],
+  "author": "wdiazplus <dev@wilmerdiaz.com>",
+  "homepage": "https://github.com/gh0stl1m/platzily#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-monolith.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-monolith/issues"
+  }
+}
