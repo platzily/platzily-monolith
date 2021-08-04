@@ -9,7 +9,7 @@ const env = '.env';
 switch (process.env.NODE_ENV) {
   case supportedEnvs.PRODUCTION: {
     environment = '';
-    pathEnv = `/src/${env}`;
+    pathEnv = path.resolve(__dirname,'../../',env);
     break;
   }
   default: {
@@ -19,6 +19,6 @@ switch (process.env.NODE_ENV) {
   }
 }
 
-dotenv.config({ pathEnv });
+dotenv.config({ path: pathEnv });
 
 module.exports = environment;
