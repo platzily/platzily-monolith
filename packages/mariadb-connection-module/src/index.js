@@ -5,7 +5,7 @@ const logger = require('./utils/logger');
 
 DB.raw('select 1+1 as result')
     .then(() => {
-        logger.info(`[pl-mongodbconnection-module]: Mongoose connection is opened to ${databaseConfig.connection.host}`)
+        logger.info(`[pl-mariadbconnection-module]: Mongoose connection is opened to ${databaseConfig.connection.host}`)
     })
     .catch(err => {
         logger.error(`[pl-mariadbconnection-module]: Connection error : ${err.message}`);
