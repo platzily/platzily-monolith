@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "name": "@platzily/statistics-module",
+  "version": "1.0.0",
+  "description": "Statistics Services",
+  "author": "Statistics Team <@platzily/statistics>",
+  "homepage": "https://github.com/platzily/platzily-monolith#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-monolith.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-monolith/issues"
+  }
+}

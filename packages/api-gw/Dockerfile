@@ -11,6 +11,7 @@ COPY lerna.json /src/app
 
 COPY ./packages/mongodb-connection-module /src/app/packages/mongodb-connection-module
 COPY ./packages/links-module /src/app/packages/links-module
+COPY ./packages/statistics-module /src/app/packages/statistics-module
 COPY ./packages/api-gw /src/app/packages/api-gw
 
 RUN yarn install --frozen-file --production -W
