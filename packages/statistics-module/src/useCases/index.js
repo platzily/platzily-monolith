@@ -1,3 +1,3 @@
-import StatisticUseCases from "./statistic.js";
+const StatisticUseCases = require("./statistic.js");
 
-export { StatisticUseCases };
+module.exports = { StatisticUseCases };

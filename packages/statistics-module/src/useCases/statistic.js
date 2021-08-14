@@ -1,7 +1,11 @@
 const addStatistic =
   ({ model }) =>
-  async (userId, linkId) => {
+  async ({userId, linkId}) => {
     let addedStatistic;
+
+    console.log('Model: ', model);
+    console.log('userId: ', userId);
+    console.log('linkId: ', linkId);
 
     try {
       addedStatistic = await model.create({ userId, linkId });
@@ -12,4 +16,4 @@ const addStatistic =
     return addedStatistic;
   };
 
-export { addStatistic };
+module.exports = { addStatistic };

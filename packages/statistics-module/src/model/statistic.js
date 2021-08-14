@@ -1,5 +1,5 @@
-import { Schema } from "mongoose";
-import dbConnection from "../repositories/mongoDB/dbClient.js";
+const { Schema } = require("mongoose");
+const dbConnection = require("../repositories/mongoDB/dbClient.js");
 
 const StatisticSchema = new Schema(
   {
@@ -11,4 +11,4 @@ const StatisticSchema = new Schema(
 
 StatisticSchema.index({ hash: 1 });
 
-export default dbConnection.model("statistic", StatisticSchema);
+module.exports = dbConnection.model("statistic", StatisticSchema);

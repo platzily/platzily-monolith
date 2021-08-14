@@ -1,9 +1,9 @@
-async function saveStatistic(req, reply) {
-  const { user_id, link_id } = req.body;
+async function addStatistic(req, reply) {
+  const { userId, linkId } = req.body;
 
-  req.log.info(`Saving statistic link ${link_id} for user ${user_id}`);
+  req.log.info(`Saving statistic link ${linkId} for user ${userId}`);
 
-  const response = await this.statisticLinkAdapter.addStatistic({ user_id, link_id });
+  const response = await this.statisticLinkAdapter.addStatistic({ userId, linkId });
 
   return reply.code(201)
     .headers('Content-Type', 'application/json; charset=utf-8')
@@ -12,5 +12,5 @@ async function saveStatistic(req, reply) {
 
 
 module.exports = {
-  saveStatistic
+  addStatistic
 };

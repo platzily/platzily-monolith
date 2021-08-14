@@ -1,7 +1,7 @@
-import { StatisticModel } from "./model/index.js";
-import { StatisticUseCases } from "./useCases/index.js";
+const { StatisticModel } = require("./model/index.js");
+const { StatisticUseCases } = require("./useCases/index.js");
 
-export default {
+module.exports = {
   addStatistic: StatisticUseCases.addStatistic({
     model: StatisticModel,
   }),

@@ -6,4 +6,4 @@ class Statistic {
   }
 }
 
-export default Statistic;
+module.exports = Statistic;

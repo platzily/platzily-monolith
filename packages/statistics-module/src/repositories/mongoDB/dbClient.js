@@ -1,3 +1,2 @@
-import mongoConnection from "@platzily/mongodb-connection-module";
-
-export default mongoConnection;
+const mongoConnection = require("@platzily/mongodb-connection-module");
+module.exports = mongoConnection;

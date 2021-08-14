@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "@platzily/statistics-module",
   "version": "1.0.0",
   "description": "Statistics Services",

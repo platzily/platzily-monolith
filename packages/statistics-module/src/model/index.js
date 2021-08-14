@@ -1,3 +1,3 @@
-import StatisticModel from "./statistic";
+const StatisticModel = require("./statistic");
 
-export { StatisticModel };
+module.exports = { StatisticModel };

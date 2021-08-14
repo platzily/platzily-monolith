@@ -1,5 +1,5 @@
-import Faker from "faker";
-import StatisticUseCases from "./statistic";
+const Faker = require("faker");
+const StatisticUseCases = require("./statistic");
 
 describe("Statistic Use Cases", () => {
   describe("addStatistic", () => {
