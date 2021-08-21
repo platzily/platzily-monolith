@@ -1,16 +1,15 @@
 function createError({
-    statusCode = 500,
-    error = 'Internal Server Error',
-    message = ''
+  statusCode = 500,
+  error = 'Internal Server Error',
+  message = '',
 }) {
-
   return {
     statusCode,
     error,
-    message
-  }
+    message,
+  };
 }
 
 module.exports = {
-  createError
-}
+  createError,
+};

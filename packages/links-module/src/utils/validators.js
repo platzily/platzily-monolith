@@ -1,6 +1,6 @@
 const logger = require('./logger');
 
-const isValidURL = url => {
+const isValidURL = (url) => {
   try {
     new URL(url);
   } catch (err) {
@@ -9,6 +9,6 @@ const isValidURL = url => {
   }
 
   return true;
-}
+};
 
 module.exports = { isValidURL };
