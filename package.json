@@ -6,7 +6,8 @@
   "scripts": {
     "start:server": "yarn workspace @platzily/api-gw start",
     "start:server:dev": "yarn workspace @platzily/api-gw start:dev",
-    "dev": "docker-compose up -d && sleep 5 && yarn start:server:dev"
+    "start:database": "docker-compose up -d",
+    "dev": "yarn start:server:dev"
   },
   "private": true,
   "devDependencies": {

@@ -13,6 +13,12 @@ cat .env.example > .env
 Fill all the environment variables on the `.env` file
 
 ```bash
+yarn start:database
+```
+
+Wait for the databases to fill and run the following command
+
+```bash
 yarn dev
 ```
 
