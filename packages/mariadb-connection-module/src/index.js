@@ -1,15 +1,15 @@
 const knex = require('knex');
 const databaseConfig = require('../src/config/knexfile');
-const DB = knex(databaseConfig);
 const logger = require('./utils/logger');
 
-DB.raw('select 1+1 as result')
-    .then(() => {
-        logger.info(`[pl-mariadbconnection-module]: Mongoose connection is opened to ${databaseConfig.connection.host}`)
-    })
-    .catch(err => {
-        logger.error(`[pl-mariadbconnection-module]: Connection error : ${err.message}`);
-        process.exit(1)
-    })
-
-module.exports = DB;
+let dbConnection;
+try {
+    logger.info(`[pl-mariadbconnection-module]: Oppening a db connection to ${databaseConfig.connection.host}`);
+    if (!dbConnection) {
+        dbConnection = knex(databaseConfig);
+    }
+} catch(err) {
+    logger.error(`[pl-mariadbconnection-module]: Connection error : ${err.message}`);
+    process.exit(1);
+}
+module.exports = dbConnection;

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const environment = require('../config/environment')
+const environment = require('../config/environment');
 
 const config = {
     DB_HOST: process.env[`${environment}DB_HOST`],
