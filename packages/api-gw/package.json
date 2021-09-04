@@ -22,7 +22,7 @@
   "homepage": "https://github.com/gh0stl1m/platzily#readme",
   "dependencies": {
     "@platzily/links-module": "^1.0.0",
-    "@platzily/statistics-module": "^1.0.0",
+    "@platzily/statistics-module": "^0.1.0",
     "fastify": "^3.14.0",
     "fastify-autoload": "^3.6.0",
     "fastify-plugin": "^3.0.0"
