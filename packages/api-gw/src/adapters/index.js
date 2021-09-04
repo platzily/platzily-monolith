@@ -1,9 +1,9 @@
 const healthyChecks = require('./healthyChecks/healthyChecks');
 const link = require('./link/link');
-const statisticLink = require('./statisticLink/statisticLink');
+const linkStats = require('./linkStats/linkStats');
 
 module.exports = {
   healthyChecks,
   link,
-  statisticLink
+  linkStats
 };

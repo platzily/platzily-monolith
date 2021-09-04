@@ -1,5 +1,5 @@
 const Faker = require('faker');
-const statisticLinkAdapters = require('./statisticLink');
+const linkStatsAdapters = require('./linkStats');
 const { createReqStub, createReplyStub } = require('../../utils/testUtils');
 
 describe('Statistic Link Adapters' , () => {
@@ -14,13 +14,13 @@ describe('Statistic Link Adapters' , () => {
       });
 
       const replyStubs = createReplyStub();
-      const statisticLinkAdapterStub = {
+      const linkStatsAdapterStub = {
         addStatistic: jest.fn(),
       }
 
       // Act
-      const addStatisticBinded = statisticLinkAdapters.addStatistic
-        .bind({ statisticLinkAdapter: statisticLinkAdapterStub });
+      const addStatisticBinded = linkStatsAdapters.addStatistic
+        .bind({ linkStatsAdapter: linkStatsAdapterStub });
       await addStatisticBinded(reqStubs, replyStubs);
 
       // Asserts
