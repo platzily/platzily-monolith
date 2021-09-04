@@ -9,7 +9,7 @@ describe('Statistic Link Adapters' , () => {
       const reqStubs = createReqStub({
         body: {
           userId: Faker.random.number(),
-          linkId: Faker.random.number()
+          linkId: Faker.random.uuid()
         }
       });
 

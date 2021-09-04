@@ -6,7 +6,7 @@ describe("Statistic Use Cases", () => {
     it("Given a valid userId and linkId, then the function must return a created statistic", () => {
       // Arrange
       const userId = Faker.datatype.number();
-      const linkId = Faker.datatype.number();
+      const linkId = Faker.datatype.uuid();
 
       const statisticObjectModel = {
         _id: Faker.datatype.uuid(),

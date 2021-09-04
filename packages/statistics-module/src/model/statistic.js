@@ -4,7 +4,7 @@ const dbConnection = require("../repositories/mongoDB/dbClient.js");
 const StatisticSchema = new Schema(
   {
     userId: { type: Number, required: true },
-    linkId: { type: Number, required: true },
+    linkId: { type: String, required: true },
   },
   { timestamps: true }
 );
