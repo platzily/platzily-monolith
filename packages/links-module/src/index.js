@@ -8,5 +8,6 @@ module.exports = {
     model: LinkModel,
     idGenerator: { generate: nanoid }
   }),
+  getLinksByUser: LinkUseCases.getLinksByUser({ model: LinkModel }),
   readUrlByHash: LinkUseCases.readUrlByHash({ model: LinkModel }),
 }

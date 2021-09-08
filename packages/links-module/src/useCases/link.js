@@ -6,7 +6,7 @@ const {
   constants: { errorTypes },
 } = require('../utils');
 
-const createShortURL = ({ model, idGenerator }) => async (originalUrl, fullHostnameURL) => {
+const createShortURL = ({ model, idGenerator }) => async (originalUrl, fullHostnameURL,userId) => {
   if (!validators.isValidURL(originalUrl) || !validators.isValidURL(fullHostnameURL)) {
     logger.error('[pl-link-module]: The URL provided is not valid');
 
@@ -20,6 +20,7 @@ const createShortURL = ({ model, idGenerator }) => async (originalUrl, fullHostn
     shortURL = await model.create({
       originalUrl,
       hash: idGenerator.generate(),
+      userId
     });
   } catch (error) {
    logger.error('[pl-link-module]: Error creating short URL: ', err.message);
@@ -29,6 +30,9 @@ const createShortURL = ({ model, idGenerator }) => async (originalUrl, fullHostn
   return `${fullHostnameURL}/${shortURL.hash}`;
 };
 
+const getLinksByUser = ({ model }) => async (userId) => {
+  return await model.find({ userId }).exec();
+}
 const readUrlByHash = ({ model }) => async (hash, fieldsSelector = { _id: 1 }) => {
   if (!hash) {
     logger.error('[pl-link-module]: Error the hash parameter is required');
@@ -40,5 +44,7 @@ const readUrlByHash = ({ model }) => async (hash, fieldsSelector = { _id: 1 }) =
   return model.findOne({ hash }, fieldsSelector);
 }
 
-module.exports = { createShortURL, readUrlByHash };
+
+
+module.exports = { createShortURL, readUrlByHash, getLinksByUser};
 

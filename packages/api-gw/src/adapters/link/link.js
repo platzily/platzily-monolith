@@ -1,7 +1,19 @@
 const { createError } = require('../../utils/errorHandling');
 
+async function getLinksByUser(req, reply) {
+  const { userid } = req.query;
+
+  req.log.info(`Searching urls by ${userid}`);
+
+  const result = await this.linkAdapter.getLinksByUser(userid)
+
+  return reply.code(200)
+    .headers('Content-Type', 'application/json; charset=utf-8')
+    .send({ data: result });
+}
+
 async function createShortUrl(req, reply) {
-  const { url } = req.body;
+  const { url } = req;
 
   req.log.info(`Creating short url for ${url}`);
 
@@ -9,8 +21,8 @@ async function createShortUrl(req, reply) {
   const shortUrL = await this.linkAdapter.createShortUrl(url, hostnameUrl);
 
   return reply.code(201)
-    .headers('Content-Type', 'application/json; charset=utf-8')
-    .send({ data: shortUrL });
+      .headers('Content-Type', 'application/json; charset=utf-8')
+      .send({ data: shortUrL });
 }
 
 async function redirectToUrl(req, reply) {
@@ -34,5 +46,6 @@ async function redirectToUrl(req, reply) {
 
 module.exports = {
   createShortUrl,
-  redirectToUrl
+  redirectToUrl,
+  getLinksByUser
 };
