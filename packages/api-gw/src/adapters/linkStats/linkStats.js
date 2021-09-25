@@ -5,12 +5,12 @@ async function addStatistic(req, reply) {
 
   const response = await this.linkStatsAdapter.addStatistic({ userId, linkId });
 
-  return reply.code(201)
-    .headers('Content-Type', 'application/json; charset=utf-8')
+  return reply
+    .code(201)
+    .headers("Content-Type", "application/json; charset=utf-8")
     .send({ data: response });
 }
 
-
 module.exports = {
-  addStatistic
+  addStatistic,
 };
