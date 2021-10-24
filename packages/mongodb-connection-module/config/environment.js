@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const { supportedEnvs } = require('../src/utils/constants');
+const { join } = require('path')
 
 let environment;
 let path;
@@ -13,7 +14,7 @@ switch (process.env.NODE_ENV) {
   }
   default: {
     environment = 'DEV_';
-    path = `${process.env.HOME}/${env}`;
+    path = `${join(__dirname, '../../..')}/${env}`;
 
     break;
   }

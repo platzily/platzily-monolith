@@ -4,7 +4,10 @@
     "packages/*"
   ],
   "scripts": {
-    "start:server": "yarn workspace @platzily/api-gw start"
+    "start:server": "yarn workspace @platzily/api-gw start",
+    "start:server:dev": "yarn workspace @platzily/api-gw start:dev",
+    "start:database": "docker-compose up -d",
+    "dev": "yarn start:server:dev"
   },
   "private": true,
   "devDependencies": {
