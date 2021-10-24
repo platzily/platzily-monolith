@@ -36,7 +36,7 @@ describe('Validators', () => {
       // Arrange
       const edgeCases = [Faker.random.number(), Faker.random.float(), null, undefined, {}];
 
-      edgeCases.forEach(value => {
+      edgeCases.forEach((value) => {
         // Act
         const isValid = validators.isValidURL(value);
 

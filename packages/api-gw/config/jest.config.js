@@ -20,4 +20,4 @@ module.exports = {
     '<rootDir>/src/**/__tests__/**/*.js?(x)',
     '<rootDir>/src/**/**/?(*.)(spec|test|integration).js?(x)',
   ],
-}
+};

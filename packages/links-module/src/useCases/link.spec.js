@@ -14,9 +14,9 @@ describe('Link Use Cases', () => {
         hash,
       };
       const dependencies = {
-        model: { create: jest.fn(() => Promise.resolve(linkObjectModel))},
-        idGenerator: { generate: jest.fn(() => hash)}
-      }
+        model: { create: jest.fn(() => Promise.resolve(linkObjectModel)) },
+        idGenerator: { generate: jest.fn(() => hash) },
+      };
 
       // Act
       const shortUrlBuilder = linkUseCases.createShortURL(dependencies);
@@ -28,17 +28,17 @@ describe('Link Use Cases', () => {
         originalUrl,
         hash,
       });
-      expect(dependencies.idGenerator.generate).toHaveBeenCalledWith()
+      expect(dependencies.idGenerator.generate).toHaveBeenCalledWith();
     });
 
-    it('Given an invalid URL then the fuction must return an error', async() => {
+    it('Given an invalid URL then the fuction must return an error', async () => {
       // Arrange
       const invalidURL = Faker.internet.domainName();
       const hostnameUrl = Faker.internet.url();
       const dependencies = {
         model: { create: jest.fn() },
         idGenerator: { generate: jest.fn() },
-      }; 
+      };
 
       // Act
       const shortUrlBuilder = linkUseCases.createShortURL(dependencies);
@@ -61,9 +61,9 @@ describe('Link Use Cases', () => {
 
       const dependencies = {
         model: {
-          findOne: jest.fn(() => Promise.resolve(linkObject))
-        }
-      }
+          findOne: jest.fn(() => Promise.resolve(linkObject)),
+        },
+      };
 
       // Act
       const linkReader = linkUseCases.readUrlByHash(dependencies);
@@ -78,7 +78,7 @@ describe('Link Use Cases', () => {
       // Arrange
       const dependencies = {
         model: { findOne: jest.fn() },
-      }; 
+      };
 
       // Act
       const readerLink = linkUseCases.readUrlByHash(dependencies);

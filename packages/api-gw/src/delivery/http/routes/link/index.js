@@ -1,5 +1,5 @@
 const { link } = require('../../../../adapters');
-const schema = require('./schema')
+const schema = require('./schema');
 
 async function linkRouter(fastify) {
   fastify.post('/', { schema }, link.createShortUrl);
