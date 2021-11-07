@@ -5,5 +5,5 @@ const linkStats = require('./linkStats/linkStats');
 module.exports = {
   healthyChecks,
   link,
-  linkStats
+  linkStats,
 };
