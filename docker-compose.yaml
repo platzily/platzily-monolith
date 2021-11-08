@@ -20,16 +20,15 @@ services:
 
   mongo-db:
     image: mongo
-    container_name: mongo_db
+    container_name: mongo-db
     restart: unless-stopped
     command: [--auth]
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGODB_ADMIN_USER}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_ADMIN_PASS}
+      - MONGO_INITDB_DATABASE=${MONGODB_DATABASE}
       - MONGODB_USER=${MONGODB_USER}
       - MONGODB_PASS=${MONGODB_PASS}
-      - MONGO_INITDB_DATABASE=${MONGODB_INIT_DATABASE}
-      - MONGODB_DATABASE=${MONGODB_DATABASE}
     ports:
       - "27017:27017"
     volumes:

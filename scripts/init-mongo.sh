@@ -1,18 +1,20 @@
-mongo -- "$MONGO_INITDB_DATABASE" <<EOF
-use $MONGO_INITDB_DATABASE;
+mongosh -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD <<EOF
 
-db.auth('$MONGO_INITDB_ROOT_USERNAME', '$MONGO_INITDB_ROOT_PASSWORD');
-
-use $MONGODB_DATABASE;
+use $MONGO_INITDB_DATABASE
 
 db.createUser({
   user: '$MONGODB_USER',
   pwd: '$MONGODB_PASS',
   roles: [{
     role: 'readWrite',
-    db: '$MONGODB_DATABASE'
+    db: '$MONGO_INITDB_DATABASE'
   }]
 });
 
-db.config.insert({'test': 'hello'});
+db.config.insertOne({
+  seed: {
+    user: '$MONGODB_USER',
+    role: 'readWrite' 
+  }
+});
 EOF
