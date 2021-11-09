@@ -13,6 +13,7 @@ assert(config.DB_USER, 'DB_USER must be provided');
 assert(config.DB_PASSWORD, 'DB_PASSWORD must be provided');
 assert(config.DB_NAME, 'DB_NAME must be provided');
 
+
 module.exports = {
     client: 'mysql2',
     connection: {

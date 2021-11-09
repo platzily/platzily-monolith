@@ -27,9 +27,18 @@
     "url": "git+https://github.com/platzily/platzily-monolith.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "run": "tsc && node ./dist/index.js",
+    "created:migration": "npx knex migrate:make user-table --knexfile=./config/knexfile.js",
+    "run:migration": "npx knex migrate:up --knexfile=./config/knexfile.js"
   },
   "bugs": {
     "url": "https://github.com/platzily/platzily-monolith/issues"
+  },
+  "dependencies": {
+    "knex": "0.95.8",
+    "mariadb-connection-module": "0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "4.4.4"
   }
 }

@@ -12,4 +12,7 @@ try {
     logger.error(`[pl-mariadbconnection-module]: Connection error : ${err.message}`);
     process.exit(1);
 }
-module.exports = dbConnection;
+module.exports = {
+    dbConnection,
+    databaseConfig
+};
