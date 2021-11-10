@@ -33,6 +33,22 @@ services:
 #    networks:
 #      - platzily-network
 
+  maria-db:
+    image: mariadb
+    container_name: maria_db
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - platzily-network
+
 networks:
   platzily-network:
     driver: bridge

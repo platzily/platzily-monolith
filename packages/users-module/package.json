@@ -1,10 +1,17 @@
 {
   "name": "@platzily/users-module",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "User services",
-  "author": "User Team",
+  "author": "Platzily",
+  "contributors": [
+    {
+      "name": "Jorge Arias Argüelles",
+      "github": "https://github.com/jorgearguellles",
+      "linkedin": "https://www.linkedin.com/in/jorgeariasarguelles/e"
+    }
+  ],
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "src/index.js",
   "directories": {
     "src": "src"

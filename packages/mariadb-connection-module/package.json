@@ -1,0 +1,41 @@
+{
+  "name": "mariadb-connection-module",
+  "version": "0.1.0",
+  "description": "This module provide of connection to maria db",
+  "author": "Platzily",
+  "contributors": [
+    {
+      "name": "Jonattan Infante Vargas",
+      "github": "https://github.com/jinfanv",
+      "linkedin": "www.linkedin.com/in/jonattaninfante"
+    },
+    {
+      "name": "Edward Fernández",
+      "github": "https://github.com/edanfesi",
+      "linkedin": "https://www.linkedin.com/in/edanfesi/"
+    }
+  ],
+  "homepage": "https://github.com/platzily/platzily-monolith#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-monolith.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-monolith/issues"
+  },
+  "dependencies": {
+    "knex": "0.95.8",
+    "mysql2": "2.2.5"
+  }
+}
