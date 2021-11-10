@@ -1,4 +1,4 @@
-const Faker = require('faker')
+const Faker = require('faker');
 
 function buildMockServer(server, plugin) {
   return server().register(plugin);
@@ -11,20 +11,20 @@ function createReqStub(mock = {}) {
     log: {
       info: jest.fn(),
     },
-    ...mock
-  }
+    ...mock,
+  };
 }
 
 function createReplyStub() {
   const sendStub = jest.fn();
   const headersStub = jest.fn(() => ({ send: sendStub }));
-  const codeReplystub = jest.fn(() => ({ headers: headersStub }))
+  const codeReplystub = jest.fn(() => ({ headers: headersStub }));
   const redirectStub = jest.fn();
 
   return {
     code: codeReplystub,
-    redirect: redirectStub
-  }
+    redirect: redirectStub,
+  };
 }
 
 module.exports = { buildMockServer, createReqStub, createReplyStub };

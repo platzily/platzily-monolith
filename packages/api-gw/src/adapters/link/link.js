@@ -26,13 +26,12 @@ async function redirectToUrl(req, reply) {
     .headers('Content-Type', 'application/json; charset=utf-8')
     .send(createError({
       statusCode: 404,
-      error: "Not found",
-      message: "Oops, it looks like this url do not exist anymore"
+      error: 'Not found',
+      message: 'Oops, it looks like this url do not exist anymore',
     }));
 }
 
-
 module.exports = {
   createShortUrl,
-  redirectToUrl
+  redirectToUrl,
 };

@@ -22,10 +22,10 @@ const createShortURL = ({ model, idGenerator }) => async (originalUrl, fullHostn
       hash: idGenerator.generate(),
     });
   } catch (error) {
-   logger.error('[pl-link-module]: Error creating short URL: ', err.message);
+    logger.error('[pl-link-module]: Error creating short URL: ', error.message);
     throw new BusinessError(errorTypes.WRITE_DATABASE_ERROR, 'link-module');
   }
-  
+
   return `${fullHostnameURL}/${shortURL.hash}`;
 };
 
@@ -38,7 +38,6 @@ const readUrlByHash = ({ model }) => async (hash, fieldsSelector = { _id: 1 }) =
   logger.info('[pl-link-module]: Reading URL by hash');
 
   return model.findOne({ hash }, fieldsSelector);
-}
+};
 
 module.exports = { createShortURL, readUrlByHash };
-
