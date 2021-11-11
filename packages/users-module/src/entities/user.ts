@@ -1,4 +1,6 @@
-export interface UserDTO {
+import { UserDTO } from "../dto/user";
+
+export class User {
     id: number;
     firstname: string;
     lastname: string;
