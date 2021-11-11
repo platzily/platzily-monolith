@@ -12,12 +12,12 @@
   ],
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "directories": {
-    "src": "src"
+    "dist": "dist"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -28,6 +28,7 @@
   },
   "scripts": {
     "run": "tsc && node ./dist/index.js",
+    "build": "tsc",
     "created:migration": "npx knex migrate:make user-table --knexfile=./config/knexfile.js",
     "run:migration": "npx knex migrate:up --knexfile=./config/knexfile.js"
   },
