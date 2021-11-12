@@ -1,5 +1,5 @@
 # Build
-from node:14.14-alpine as builder
+FROM node:14.14-alpine as builder
 
 # Environment
 WORKDIR /src/app

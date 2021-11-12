@@ -5,10 +5,14 @@ services:
     build:
       context: .
       dockerfile: ./packages/api-gw/Dockerfile
+      args:
+        SERVER_PORT: ${SERVER_PORT}
+    env_file:
+      - .env
     depends_on:
       - mongo-db
     ports:
-      - "3100:3100"
+      - "3100:${SERVER_PORT}"
     container_name: api-gw
     restart: on-failure
     links:
