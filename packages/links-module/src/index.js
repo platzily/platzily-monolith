@@ -1,7 +1,7 @@
 const { nanoid } = require('nanoid');
 
-const { LinkModel } = require('./entities');
-const { LinkUseCases } = require('./useCases');
+const { LinkModel, CampaignModel } = require('./entities');
+const { LinkUseCases, CampaignUseCases } = require('./useCases');
 
 module.exports = {
   createShortUrl: LinkUseCases.createShortURL({
@@ -9,4 +9,7 @@ module.exports = {
     idGenerator: { generate: nanoid }
   }),
   readUrlByHash: LinkUseCases.readUrlByHash({ model: LinkModel }),
+  createCampaign: CampaignUseCases.createCampaign({
+    model: CampaignModel
+  })
 }

@@ -1,3 +1,4 @@
 const LinkUseCases = require('./link');
+const CampaignUseCases = require('./campaign');
 
-module.exports = { LinkUseCases };
+module.exports = { LinkUseCases, CampaignUseCases };
