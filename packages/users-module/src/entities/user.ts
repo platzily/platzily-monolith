@@ -9,7 +9,17 @@ export const modelUser= () :userModel => {
 }
 
 async function create(user:createUserDTO) {
-    let result:User = await dbConnection(USER_TABLE).insert(user);
+    let result:User = await dbConnection(USER_TABLE).insert(user).returning([
+        'id',
+        'firstname',
+        'lastname',
+        'description',
+        'email',
+        'rol',
+        'image',
+        'is_active',
+        'reason'
+    ]);
     return result
 }
 
