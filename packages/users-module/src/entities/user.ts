@@ -1,13 +1,29 @@
-import { UserDTO } from "../dto/user";
+import { UserEntity, User } from "../dto/user";
 
-export class User {
-    id: number;
-    firstname: string;
-    lastname: string;
-    description: string;
-    email: string;
-    rol: string;
-    image: string;
-    is_active: boolean;
-    reason: string;
+async function get(email:any): Promise<User> {
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+          resolve({
+            id: 1,
+            firstname: 'MockName',
+            lastname: 'MockLastName',
+            description: 'MockDescription',
+            email: email,
+            rol: "None",
+            image:  "MockReason.png",
+            is_active: true,
+            reason: "MockReason",
+          });
+
+        }, 300);
+    });
+};
+
+export const modelUser = (): UserEntity => {
+    return {
+        get
+    }
 }
