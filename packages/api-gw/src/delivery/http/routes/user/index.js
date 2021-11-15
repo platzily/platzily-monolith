@@ -1,7 +1,11 @@
 const { user } = require('../../../../adapters');
 
 async function userRouter(fastify) {
-	fastify.get('/', user.getUser);
+	fastify.get('/',
+        { querystring: {
+            email: { type: 'string' }
+        } 
+    } ,user.getUser);
 }
 
 module.exports = userRouter;
