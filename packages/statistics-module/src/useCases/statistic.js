@@ -1,17 +1,11 @@
-const addStatistic =
-  ({ model }) =>
-  async ({userId, linkId}) => {
-    let addedStatistic;
+const addStatistic = ({ model }) => async ({
+  userId, linkId, metric, context,
+}) => {
+  const addedStatistic = await model.create({
+    userId, linkId, metric, context,
+  });
 
-    // Valid location and IP formats
-
-    try {
-      addedStatistic = await model.create({ userId, linkId });
-    } catch (err) {
-      throw err;
-    }
-
-    return addedStatistic;
-  };
+  return addedStatistic;
+};
 
 module.exports = { addStatistic };
