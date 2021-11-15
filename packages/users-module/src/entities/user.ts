@@ -1,25 +1,11 @@
 import { UserEntity, User } from "../dto/user";
+import { postgreSQLConnection } from "../repositories/postgreSQL/dbClient";
+import { USER_TABLE } from "../utils/constants";
 
 async function get(email:any): Promise<User> {
 
-    return new Promise((resolve, reject) => {
-
-        setTimeout(() => {
-
-          resolve({
-            id: 1,
-            firstname: 'MockName',
-            lastname: 'MockLastName',
-            description: 'MockDescription',
-            email: email,
-            rol: "None",
-            image:  "MockReason.png",
-            is_active: true,
-            reason: "MockReason",
-          });
-
-        }, 300);
-    });
+    const user:User = await postgreSQLConnection(USER_TABLE).select('id','firstname','lastname','description','email','rol','image','is_active','reason').where('email', email);
+    return user;
 };
 
 export const modelUser = (): UserEntity => {
