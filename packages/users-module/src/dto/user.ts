@@ -1,4 +1,4 @@
-export interface UserDTO {
+export interface User {
     id: number;
     firstname: string;
     lastname: string;
@@ -8,4 +8,8 @@ export interface UserDTO {
     image: string;
     is_active: boolean;
     reason: string;
+}
+
+export interface UserEntity {
+    get(email: any) : Promise<User>;
 }
