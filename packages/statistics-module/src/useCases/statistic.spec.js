@@ -37,6 +37,29 @@ describe('Statistic Use Cases', () => {
       expect(addedStatistic).toBe(statisticObjectModel);
       expect(dependencies.model.create).toHaveBeenCalled();
     });
+    it('Given a link id not valid, then the function must return a business error LINK_ID_NOT_VALID', async () => {
+      // Arrange
+      const linkId = '507g191h810i19729jk860lm';
+      const userId = Faker.random.number();
+      const metric = {
+        name: 'clicks',
+        description: 'clicks by link',
+      };
+      const context = 'link';
+
+      const dependencies = {
+        model: {
+          create: jest.fn(() => Promise.reject(new BusinessError(errorTypes.LINK_ID_NOT_VALID, 'statistic-module'))),
+        },
+      };
+      // Act
+      const addStatisticBuilder = StatisticUseCases.addStatistic(dependencies);
+      // Assert
+      await expect(addStatisticBuilder({
+        userId, linkId, metric, context,
+      })).rejects.toThrowError(new BusinessError(errorTypes.LINK_ID_NOT_VALID, 'statistic-module'));
+      expect(dependencies.model.create).not.toHaveBeenCalled();
+    });
     it('Given a error writing in the model, then the function must return a business error WRITE_DATABASE_ERROR', async () => {
       // Arrange
       const userId = Faker.random.number();
@@ -59,14 +82,11 @@ describe('Statistic Use Cases', () => {
       await expect(addStatisticBuilder({
         userId, linkId, metric, context,
       })).rejects.toThrowError(new BusinessError(errorTypes.WRITE_DATABASE_ERROR, 'statistic-module'));
-      expect(dependencies.model.create).toHaveBeenCalledWith({
-        userId, linkId, metric, context,
-      });
+      expect(dependencies.model.create).toHaveBeenCalled();
     });
   });
-
   describe('getClicksByLinkId', () => {
-    it('Given a valid LinkId, then the function must return a count of total clicks by the LinkId', async () => {
+    it('Given a valid link id, then the function must return a count of total clicks by the link id', async () => {
       // Arrange
       const linkId = '507f191e810c19729de860ea';
 
@@ -88,6 +108,24 @@ describe('Statistic Use Cases', () => {
       expect(getClicksByLinkId).toBe(statisticCount);
       expect(dependencies.model.find).toHaveBeenCalledWith({ linkId });
     });
+    it('Given a link id not valid, then the function must return a business error LINK_ID_NOT_VALID', async () => {
+      // Arrange
+      const linkId = '507g191h810i19729jk860lm';
+
+      const dependencies = {
+        model: {
+          find: jest.fn(({ linkId }) => ({
+            count: jest.fn(() => Promise.reject(new BusinessError(errorTypes.LINK_ID_NOT_VALID, 'statistic-module'))),
+          })),
+        },
+      };
+      // Act
+      const getClicksByLinkIdBuilder = StatisticUseCases.getClicksByLinkId(dependencies);
+      // Assert
+      await expect(getClicksByLinkIdBuilder({ linkId })).rejects.toThrowError(new BusinessError(errorTypes.LINK_ID_NOT_VALID, 'statistic-module'));
+      expect(dependencies.model.find).not.toHaveBeenCalled();
+      expect(dependencies.model.find({ linkId }).count).not.toHaveBeenCalled();
+    });
     it('Given a error writing in the model, then the function must return a business error READ_DATABASE_ERROR', async () => {
       // Arrange
       const linkId = '507f191e810c19729de860ea';
@@ -104,6 +142,7 @@ describe('Statistic Use Cases', () => {
       // Assert
       await expect(getClicksByLinkIdBuilder({ linkId })).rejects.toThrowError(new BusinessError(errorTypes.READ_DATABASE_ERROR, 'statistic-module'));
       expect(dependencies.model.find).toHaveBeenCalledWith({ linkId });
+      expect(dependencies.model.find({ linkId }).count).not.toHaveBeenCalled();
     });
   });
 });
