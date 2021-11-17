@@ -7,6 +7,6 @@ class BusinessError extends Error {
 
     Error.captureStackTrace(this, this.constructor);
   }
-};
+}
 
 module.exports = BusinessError;

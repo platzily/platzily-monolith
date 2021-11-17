@@ -11,12 +11,12 @@ describe('sanitizerz', () => {
       const fieldParsed = sanitizers.errorFieldParser(field);
 
       // Asserts
-      expect(fieldParsed).toBe(`FIELD_${field.toUpperCase()}_IS_REQUIRED`);;
+      expect(fieldParsed).toBe(`FIELD_${field.toUpperCase()}_IS_REQUIRED`);
     });
 
     it('Given a not valid field, then the function must throw and error', () => {
       // Asserts
       expect(() => sanitizers.errorFieldParser()).toThrow();
-    })
-  })
-})
+    });
+  });
+});

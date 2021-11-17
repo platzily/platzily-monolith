@@ -4,6 +4,6 @@ module.exports = {
     properties: {
       url: { type: 'string' },
     },
-    required: ['url']
-  }
-}
+    required: ['url'],
+  },
+};

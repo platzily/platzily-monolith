@@ -1,9 +1,35 @@
 {
-  "type": "module",
   "name": "@platzily/statistics-module",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Statistics Services",
   "author": "Statistics Team <@platzily/statistics>",
+  "contributors": [
+    {
+      "name": "Carlos Guzmán",
+      "github": "https://github.com/calguzman",
+      "linkedin": "https://www.linkedin.com/in/carlosaguzman/"
+    },
+    {
+      "name": "Rubén Esparza",
+      "github": "https://github.com/resparzasoto",
+      "linkedin": "https://www.linkedin.com/in/resparzasoto/"
+    },
+    {
+      "name": "Cristian Cortes",
+      "github": "https://github.com/ccortes1",
+      "linkedin": "https://www.linkedin.com/in/2c-cristian-cortes/"
+    },
+    {
+      "name": "Beto Toro",
+      "github": "https://github.com/betotorodev",
+      "linkedin": "https://www.linkedin.com/in/beto-toro-859b811a6/"
+    },
+    {
+      "name": "Oscar Pérez",
+      "github": "https://github.com/OscarPay",
+      "linkedin": "https://www.linkedin.com/in/oscar-perez-ayuso-152372b3/"
+    }
+  ],
   "homepage": "https://github.com/platzily/platzily-monolith#readme",
   "license": "ISC",
   "main": "src/index.js",
