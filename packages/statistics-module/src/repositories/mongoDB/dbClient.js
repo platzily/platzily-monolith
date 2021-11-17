@@ -1,2 +1,3 @@
-const mongoConnection = require("@platzily/mongodb-connection-module");
+const mongoConnection = require('@platzily/mongodb-connection-module');
+
 module.exports = mongoConnection;
