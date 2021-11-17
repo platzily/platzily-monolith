@@ -68,5 +68,18 @@ const getClicksByLinkId = ({ model }) => async ({
 
   return countedClicksByLinkId;
 };
+const getGlobalClicks = ({ model }) => async () => {
+  logger.info('[pl-statistic-module]: Counting Global Clicks');
 
-module.exports = { addStatistic, getClicksByLinkId };
+  let countedGlobalClicks;
+  try {
+    countedGlobalClicks = await model.find().count();
+  } catch (error) {
+    logger.error('[pl-statistic-module]: Error getting counting global clicks: ', error.message);
+    throw new BusinessError(errorTypes.READ_DATABASE_ERROR, 'statistic-module');
+  }
+
+  return countedGlobalClicks;
+};
+
+module.exports = { addStatistic, getClicksByLinkId, getGlobalClicks };

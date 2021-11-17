@@ -145,4 +145,40 @@ describe('Statistic Use Cases', () => {
       expect(dependencies.model.find({ linkId }).count).not.toHaveBeenCalled();
     });
   });
+
+  describe('getGlobalClicks', () => {
+    it('The function must return a count of total clicks of platform', async () => {
+      // Arrange
+      const statisticCount = Faker.random.number();
+
+      const dependencies = {
+        model: {
+          find: jest.fn(() => ({
+            count: jest.fn(() => Promise.resolve(statisticCount)),
+          })),
+        },
+      };
+      // Act
+      const getGlobalClicksBuilder = StatisticUseCases.getGlobalClicks(dependencies);
+      const getClicks = await getGlobalClicksBuilder();
+      // Assert
+      expect(getClicks).toBe(statisticCount);
+      expect(dependencies.model.find).toHaveBeenCalledWith();
+    });
+    it('Given a error writing in the model, then the function must return a business error READ_DATABASE_ERROR', async () => {
+      // Arrange
+      const dependencies = {
+        model: {
+          find: jest.fn(() => ({
+            count: jest.fn(() => Promise.reject(new BusinessError(errorTypes.READ_DATABASE_ERROR, 'statistic-module'))),
+          })),
+        },
+      };
+      // Act
+      const getCountedGlobalClicksBuilder = StatisticUseCases.getGlobalClicks(dependencies);
+      // Assert
+      await expect(getCountedGlobalClicksBuilder()).rejects.toThrowError(new BusinessError(errorTypes.READ_DATABASE_ERROR, 'statistic-module'));
+      expect(dependencies.model.find).toHaveBeenCalledWith();
+    });
+  });
 });
