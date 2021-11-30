@@ -12,15 +12,14 @@ async function addStatistic(req, reply) {
 }
 
 async function getGlobalClicks(req, reply) {
-  // const response = await this.statisticAdapter.getGlobalClicks();
-
+  const response = await this.statisticAdapter.getGlobalClicks();
   return reply
     .code(201)
     .headers('Content-Type', 'application/json; charset=utf-8')
-    .send({ data: 'test' });
+    .send({ data: response });
 }
 
 module.exports = {
-  addStatistic,
+  add: addStatistic,
   getGlobalClicks,
 };
