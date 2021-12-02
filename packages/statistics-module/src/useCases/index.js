@@ -1,3 +1,3 @@
-const StatisticUseCases = require("./statistic.js");
+const StatisticUseCases = require('./statistic');
 
 module.exports = { StatisticUseCases };

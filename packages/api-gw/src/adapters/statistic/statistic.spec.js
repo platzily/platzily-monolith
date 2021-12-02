@@ -1,26 +1,26 @@
 const Faker = require('faker');
-const linkStatsAdapters = require('./linkStats');
+const statisticAdapter = require('./statistic');
 const { createReqStub, createReplyStub } = require('../../utils/testUtils');
 
-describe('Statistic Link Adapters' , () => {
-  describe('addStatistic' , () => {
-    it('Given an userId and linkId in the body, when a statistic link is created then the function must be return it', async () => {
+describe('Statistic Adapter', () => {
+  describe('addStatistic', () => {
+    it('Given an userId and linkId in the body, when a statistic is created then the function must be return it', async () => {
       // Arrange
       const reqStubs = createReqStub({
         body: {
           userId: Faker.random.number(),
-          linkId: Faker.random.uuid()
-        }
+          linkId: Faker.random.uuid(),
+        },
       });
 
       const replyStubs = createReplyStub();
-      const linkStatsAdapterStub = {
+      const statisticAdapterStub = {
         addStatistic: jest.fn(),
-      }
+      };
 
       // Act
-      const addStatisticBinded = linkStatsAdapters.addStatistic
-        .bind({ linkStatsAdapter: linkStatsAdapterStub });
+      const addStatisticBinded = statisticAdapter.addStatistic
+        .bind({ statisticAdapter: statisticAdapterStub });
       await addStatisticBinded(reqStubs, replyStubs);
 
       // Asserts
