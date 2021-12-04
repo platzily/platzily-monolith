@@ -2,7 +2,6 @@ import { createStyleSheet } from "@platzily-ui/styling";
 
 
 const useStyleSheet = createStyleSheet((theme, props) => {
-    console.log(theme)
 
     return {
         
@@ -32,7 +31,7 @@ function LoginInput(props) {
 
     return (
         <>
-            <input className={classes.input} placeholder={props.placeholder} value={props.value} onChange={props.onChange}/>
+            <input className={classes.input} placeholder={props.placeholder} value={props.value} onChange={props.onChange} type={props.type}/>
             <style jsx>{`
                 input::placeholder {
                     color: ${props.color};
@@ -43,7 +42,7 @@ function LoginInput(props) {
 
 
 
-}
+};
 
 
 export default LoginInput

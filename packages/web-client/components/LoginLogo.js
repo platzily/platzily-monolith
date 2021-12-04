@@ -40,6 +40,6 @@ function LoginLogo(props){
             `}</style>
         </>
     );
-}
+};
 
 export default LoginLogo

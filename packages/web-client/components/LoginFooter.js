@@ -22,7 +22,7 @@ const useStyleSheet = createStyleSheet((theme, props) => {
 }, { key: 'LoginFooter' });
 
 function LoginFooter(props) {
-    const { classes } = useStyleSheet(props)
+    const { classes } = useStyleSheet(props);
 
     return (
         <>
@@ -66,7 +66,7 @@ function LoginFooter(props) {
 
 
 
-}
+};
 
 
 export default LoginFooter
