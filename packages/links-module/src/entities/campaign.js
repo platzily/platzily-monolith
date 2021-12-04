@@ -8,8 +8,9 @@ const CampaignSchema = new Schema({
   medium: { type: String, required: true },
   tern: { type: String },
   content: { type: String },
+  isBanned: { type: Boolean },
 }, { timestamps: true });
 
-CampaignSchema.index({ hash: 1});
+CampaignSchema.index({ hash: 1 });
 
 module.exports = dbConnection.model('campaign', CampaignSchema);
