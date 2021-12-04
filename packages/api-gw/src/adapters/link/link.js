@@ -6,7 +6,7 @@ async function createShortUrl(req, reply) {
   req.log.info(`Creating short url for ${url}`);
 
   const hostnameUrl = `${req.protocol}://${req.hostname}`;
-  const shortUrL = await this.linkAdapter.createShortUrl(url, hostnameUrl);
+  const shortUrL = await this.linkService.createShortUrl(url, hostnameUrl);
 
   return reply.code(201)
     .headers('Content-Type', 'application/json; charset=utf-8')
@@ -16,7 +16,7 @@ async function createShortUrl(req, reply) {
 async function redirectToUrl(req, reply) {
   const { hash } = req.params;
   req.log.info(`Getting url from ${hash} hash`);
-  const link = await this.linkAdapter.readUrlByHash(hash, { _id: 0, originalUrl: 1 });
+  const link = await this.linkService.readUrlByHash(hash, { _id: 0, originalUrl: 1 });
 
   if (link) {
     return reply.redirect(link.originalUrl);
@@ -30,7 +30,6 @@ async function redirectToUrl(req, reply) {
       message: "Oops, it looks like this url do not exist anymore"
     }));
 }
-
 
 module.exports = {
   createShortUrl,
