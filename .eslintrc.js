@@ -13,7 +13,7 @@ module.exports = {
     'airbnb-base',
   ],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2020,
   },
   rules: {
     'import/no-extraneous-dependencies': [

@@ -1,57 +1,52 @@
-import React from "react";
+import Footer from "../../components/LoginFooter";
+import Form from "../../components/RegisterForm";
 import Head from 'next/head'
+import Logo from "../../components/LoginLogo";
+import React from "react";
 import { useTheme } from "@platzily-ui/styling";
 
-
-import Logo from "../../components/LoginLogo";
-import Form from "../../components/LoginForm";
-import Footer from "../../components/LoginFooter";
-
-
-
-const Login = () => {
-    const theme = useTheme();
-
-    return (
+const Register = () => {
+  const theme = useTheme();
+  return (
         <>
             <Head>
-                <title>Platzily - Login</title>
+                <title>Platzily - Register</title>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
             </Head>
             <main className="main">
-                <div className="main-container"> 
-                    <Logo />
-                    <section className="main-title"> 
-                        <hr/>
-                        <h1>Please enter your email and password to login</h1>
-                    </section>
+                <div className="main-container">
+                    <div className="header">
+                        <Logo />
+                         <section className="main-title">
+                            <h1>Please enter your email and password to login</h1>
+                        </section>
+                        </div>
+                        <section className="registerContainer"> 
                     <Form />
+                    </section>
                 </div>
             </main>
             <Footer className="footer" />
-
-
-
             <style jsx>{`
                 .main {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 100%;
-                    height: 100%;
+                    height: 100vh;
                     padding: 35px 20px;
-                    background-image: url('./LoginMovileBackground.png');
+                    background-image: url('./registerBackgroundImage.png');
                     color:${theme.palette.text.light};
                     box-sizing: border-box;
                     font-size: 12px;
                     text-align: center;                    
                     font-family: 'Inter', sans-serif;
-
                 }
-
-                .main-container {
+                 .main-container {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -65,25 +60,18 @@ const Login = () => {
                     box-sizing: border-box;
                     font-size: 12px;
                     text-align: center;
-
                 }
-
                 .main-title {
                     width: 100%;
+                    border-top: 1px solid #DDDDDD;
                 }
 
                 .main-title > h1 {
                     font-weight: 300;
-                    font-size: 12px;
-                }
-
-                .main-title > hr {
-                    height: 1px;
-                    border: none;
-                    background-color: #DDDDDD;
-                }
-
-
+                    font-size: 12px; 
+                    line-height: 12px;
+                    color: #7E95A5;
+                    }
                 @media (min-height: 500px) and (min-width: 800px) {
                     .main {
                         height: 93vh;
@@ -156,20 +144,17 @@ const Login = () => {
 
                     }
                 }
-
-          
-
-
             `}</style>
             <style global jsx>{`
                 body {
                     margin: 0;
+                    font-family: 'Poppins', sans-serif;
                     box-sizing: content-box;
                 }
             `}</style>
         </>
-    )
+  )
 }
 
 
-export default Login
+export default Register

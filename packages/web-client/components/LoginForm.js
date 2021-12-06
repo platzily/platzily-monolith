@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import { createStyleSheet, useTheme } from "@platzily-ui/styling";
-import Input from '../components/LoginInput';
-import Button from "../components/LoginButton";
+import { useEffect, useState } from "react";
 
+import Button from "../components/LoginButton";
+import Input from '../components/LoginInput';
 import googleIcon from '../public/googleIcon.png';
 import twitterIcon from '../public/twitterIcon.png';
 
@@ -41,9 +41,9 @@ function LoginForm(props) {
     
 
     return (
-        <>
+        <>                   
             <form className={`${classes.form} ${props.className} form`} method="post">
-                    <fieldset className="normalLogin-container">
+            <fieldset className="normalLogin-container">
                         <h1 className="form-title">Login</h1>
                         <Input 
                             placeholder="Email" 
@@ -257,4 +257,4 @@ function LoginForm(props) {
     );
 }
 
-export default LoginForm
+export default RegisterForm
