@@ -31,15 +31,15 @@ const useStyleSheet = createStyleSheet(( theme, props ) => {
         },
 
         text: {
-            marginLeft: props.marginLeft || 0,
+             marginLeft: props.marginLeft || 0,
         }
     };
 
-}, { key: 'LoginButton'})
+}, { key: 'RegisterButton'})
 
 
 
-function LoginButton(props) {
+function RegisterButton(props) {
     const { classes } = useStyleSheet(props);
 
     return (
@@ -61,4 +61,4 @@ function LoginButton(props) {
 
 };
 
-export default LoginButton
+export default RegisterButton

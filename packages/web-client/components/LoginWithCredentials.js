@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { createStyleSheet, useTheme } from "@platzily-ui/styling";
+
+import Button from "./LoginButton";
+import Input from './LoginInput';
 import Router from 'next/router';
 import { sendLoginWithCredentials } from "../utils/sendLoginCredentials";
-import Input from './LoginInput';
-import Button from "./LoginButton";
-
-
+import { useState } from "react";
 
 const useStyleSheet = createStyleSheet(( theme, props ) => {
 
@@ -130,16 +129,21 @@ function LoginWithCredentials(props) {
                     <p className="ivalidLogin">Invalid credentials</p> :                     
                     null
                 }
+                <div className="forgotPassword-container"> 
+                <p className="forgotPassword-text">You can not access your account? <br/><a className="forgotPassword-recoverLink" href="/"> Recover account </a></p>
+            </div>
             </form>
                    
-
+    
             <style jsx>{`
-
+           
                 .form-title {
                     width: 100%;
                     margin-bottom: 5px;
                     text-align: center;
                     font-weight: 600;
+                    font-family: 'Poppins', sans-serif;
+
                     font-size: 12px;
                 }
 
@@ -148,7 +152,7 @@ function LoginWithCredentials(props) {
                     position: relative;                  
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: start;
                     flex-direction: column;
                     width: 257px;
                     border: none;
@@ -192,7 +196,7 @@ function LoginWithCredentials(props) {
                         align-self: start;
                         height: 100%;
                         padding: 0 140px 50px 50px;
-                        border-left: 3px solid #DDD
+                        border:none;
                     }
 
                     .ivalidLogin {

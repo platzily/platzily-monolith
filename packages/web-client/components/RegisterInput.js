@@ -22,10 +22,10 @@ const useStyleSheet = createStyleSheet((theme, props) => {
 
     }
 
-}, { key: 'LoginInput' });
+}, { key: 'RegisterInput' });
 
 
-function LoginInput(props) {
+function RegisterInput(props) {
     const { classes } = useStyleSheet(props)
 
     return (
@@ -44,4 +44,4 @@ function LoginInput(props) {
 };
 
 
-export default LoginInput
+export default RegisterInput

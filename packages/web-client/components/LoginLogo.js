@@ -1,5 +1,5 @@
-import { createStyleSheet } from "@platzily-ui/styling";
 import Image from 'next/image';
+import { createStyleSheet } from "@platzily-ui/styling";
 import logo from '../public/logo.png';
 
 const useStyleSheet = createStyleSheet((theme, props) => {
@@ -31,7 +31,7 @@ function LoginLogo(props){
 
                 @media (min-width: 800px) { 
                     figure {
-                        width: 195px;
+                        width: 182px;
                         height: 40px;
                     }
 

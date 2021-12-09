@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
 import { createStyleSheet, useTheme } from "@platzily-ui/styling";
+import { useEffect, useState } from "react";
+
 import Button from "../components/LoginButton";
 import LoginWithCredentials from './LoginWithCredentials';
 import googleIcon from '../public/googleIcon.png';
 import twitterIcon from '../public/twitterIcon.png';
-
 
 const useStyleSheet = createStyleSheet(( theme, props ) => {
 
@@ -106,7 +106,9 @@ function LoginForm(props) {
                     background-color: #DDDDDD;
                 }
 
-
+h1.form-title{
+    font-size: 12px !important;
+}
                 .socialLogin-container {
                     grid-area: socialLogin;                    
                     display: flex;
