@@ -1,7 +1,5 @@
 import { sendLoginWithCredentials } from '../../utils/sendLoginCredentials';
 
-
-
 describe('sendLoginWithCredentials function', () => {
     it('The function has match with the credentials', () => {
         return sendLoginWithCredentials('sergio@gmail.com', 'awdkwkdkaw').then(data => {

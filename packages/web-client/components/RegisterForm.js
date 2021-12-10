@@ -2,8 +2,9 @@ import { createStyleSheet, useTheme } from "@platzily-ui/styling";
 
 import Button from "./RegisterButton";
 import Input from './RegisterInput';
-import LoginWithCredentials from './LoginWithCredentials';
+import LoginWithCredentials  from "./LoginWithCredentials";
 import Router from 'next/router';
+import { sendDataToRegister } from "../utils/sendDataToRegister";
 import { useState } from "react";
 
 const useStyleSheet = createStyleSheet(( theme, props ) => {
@@ -42,24 +43,31 @@ function RegisterForm(props) {
         let isValidLastName = validateName(lastName);
         let isValidEmail = validateEmail(email)
         let isValidPassword = validatePassword(password)
-        if(!isValidName){
-            console.log("nombre invalido");
-        }
+         if(!isValidName || !isValidLastName){
+            console.log("Please verify your name and/or your surname");
+            setRegisterValidation({validationError: true, type: 'invalidNameOrLastName'})
+        }else 
+        if(!isValidPassword){
+            setRegisterValidation({loading: false, validationError: true, type: 'invalidOrEmptyPassword'})
 
-        if(isValidEmail && isValidPassword) {
-            console.log(Buffer.from(email).toString('base64'))
-            console.log(Buffer.from(password).toString('base64'))
-            loginWithCredentials()
+        }else 
+        if(isValidEmail){
+          const validation = email==password?setRegisterValidation({validationError: true, type: 'samePassword&Email'}):password==name?setRegisterValidation({validationError: true, type: 'samePassword&Email'}):password==lastName?setRegisterValidation({validationError: true, type: 'samePassword&Email'}):registerUser();
+
+
+console.log(Buffer.from(email).toString('base64'));
+            console.log(Buffer.from(password).toString('base64'));
            
         } else {
-            console.log('invalid credentials')
-            setRegisterValidation({validationError: true, type: 'invalidCredentials'})
+            console.log('invalid email');
+            setRegisterValidation({validationError: true, type: 'invalidEmail'})
         }
     };
 
     function validateName(name){
       return name.length>0 && !/[^a-zA-Z -]/.test(name)
     }
+ 
     function validateEmail(email) {
         return String(email)
         .toLowerCase()
@@ -72,13 +80,13 @@ function RegisterForm(props) {
         return password.length > 5
     };
 
-    function loginWithCredentials() {
+    function registerUser() {
         setRegisterValidation({loading: true, validationError: false, type: 'none'})
         
-        sendLoginWithCredentials(email, password)
+        sendDataToRegister(name, lastName, email, password)
         .then((data) => {
             if(data.status == '401') {
-                setRegisterValidation({loading: false, validationError: true, type: 'invalidLogin'})
+                setRegisterValidation({loading: false, validationError: true, type: ''})
             } else if (data.status == '200') {
                 setRegisterValidation({loading: false, validationError: false, type: 'none'})
                 Router.push(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL)
@@ -100,7 +108,7 @@ function RegisterForm(props) {
                     <Input 
                         placeholder="Name" 
                         width="100%"
-                        required="true"
+                        //required="true"
                         height="30px"
                         backgroundColor="#FFFFFF" 
                         color={theme.palette.text.light}
@@ -109,22 +117,21 @@ function RegisterForm(props) {
                         onChange={(e) => handleChange(e, setName)}
                     /> 
                     <Input 
-                    placeholder="Surname"
-                    required="true"
-                    width="100%"
-                    type="text"
-                    height="30px"
-                    backgroundColor="#FFFFFF" 
-                    color={theme.palette.text.light}
-                    value={lastName}
-                    onChange={(e) => handleChange(e, setLastName)}
-                /> 
-                        <Input 
+                        placeholder="Surname"
+                        // required="true"
+                        width="100%"
+                        type="text"
+                        height="30px"
+                        backgroundColor="#FFFFFF" 
+                        color={theme.palette.text.light}
+                        value={lastName}
+                        onChange={(e) => handleChange(e, setLastName)}
+                     /> 
+                    <Input 
                         placeholder="Email" 
-                        required="true"
                         type="email"
                         width="100%"
-                        required="truex"
+                        // required="truex"
                         height="30px"
                         backgroundColor="#FFFFFF" 
                         color={theme.palette.text.light}
@@ -139,7 +146,7 @@ function RegisterForm(props) {
                         color={theme.palette.text.light}
                         value={password}
                         type="password"
-                        required="true"
+                        // required="true"
                         onChange={(e) => handleChange(e, setPassword)}
                         type="password"
                         
@@ -164,13 +171,30 @@ function RegisterForm(props) {
                         null
                     }
                     {
-                        registerValidation.validationError && registerValidation.type == "invalidCredentials" ? 
-                        <p className="ivalidLogin">Please verify your name, </p> :                     
+                        registerValidation.validationError && registerValidation.type == "invalidEmail" ? 
+                        <p className="invalidLogin">Enter a valid email or try another</p> :                     
                         null
                     }
                     {
+                        registerValidation.validationError && registerValidation.type == "invalidNameOrLastName" ? 
+                        <p className="invalidLogin">Please verify your name or lastname</p> :                     
+                        null
+                    }
+                    {
+                        registerValidation.validationError && registerValidation.type == "invalidOrEmptyPassword" ? 
+                        <p className="invalidLogin">Please verify password field (min 5 characters) </p> :                     
+                        null
+                    }
+                    {
+                        registerValidation.validationError && registerValidation.type == "emailIsNotUnique" ? 
+                        <p className="invalidLogin">There is already an account with this email, try another email</p> :                     
+                        null
+                    }
+                   
+
+                    {
                         registerValidation.validationError && registerValidation.type == "invalidLogin" ? 
-                        <p className="ivalidLogin">Invalid credentials</p> :                     
+                        <p className="invalidLogin">Invalid credentials</p> :                     
                         null
                     }
                 </form>
@@ -230,7 +254,32 @@ function RegisterForm(props) {
                     font-weight: 700;
                 }
 
-              
+                .invalidLogin {
+                    position: relative;
+                    margin: 10px 0 0 0;
+                    align-self: center;
+                    color: red;
+                }
+                
+                .loader {
+                    position: relative;
+                    margin-left: 11px;
+                    border: 8px solid #f3f3f3;
+                    border-top: 8px solid #3498db;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                    -webkit-animation: spin 2s linear infinite;
+                    animation: spin 2s linear infinite;
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+               
+
+
 
                 .form-title{
                     color: #7E95A5;

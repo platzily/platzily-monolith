@@ -181,8 +181,6 @@ function LoginWithCredentials(props) {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
                 }
-               
-
 
                 @media (min-width: 800px) {
 
