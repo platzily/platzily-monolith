@@ -89,7 +89,7 @@ console.log(Buffer.from(email).toString('base64'));
                 setRegisterValidation({loading: false, validationError: true, type: ''})
             } else if (data.status == '200') {
                 setRegisterValidation({loading: false, validationError: false, type: 'none'})
-                Router.push(process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL)
+                Router.push('login')
             }
         })
 

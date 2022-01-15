@@ -43,17 +43,10 @@ const Login = () => {
                     box-sizing: border-box;
                     font-size: 12px;
                     text-align: center;                    
-                    font-family: 'Poppins',  sans-serif;
- 
+                    font-family: 'Inter', sans-serif;
+
                 }
-p.loginbutton{
-    font-family: 'Poppins',  sans-serif;;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    
-    color: #19213C;}
+
                 .main-container {
                     display: flex;
                     align-items: center;
@@ -76,8 +69,8 @@ p.loginbutton{
                 }
 
                 .main-title > h1 {
-                    font-weight: 300 !important;
-                    font-size: 12px !important;
+                    font-weight: 300;
+                    font-size: 12px;
                 }
 
                 .main-title > hr {
